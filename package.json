@@ -36,7 +36,7 @@
     "test": "npm run test:types && npm run test:lint && npm run test:unit && npm run test:integration",
     "prepublish": "npm run build",
     "preversion": "npm run prepublish && npm run test",
-    "postversion": "git push origin master --tags --no-verify"
+    "postversion": "git push origin HEAD --tags --no-verify"
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",

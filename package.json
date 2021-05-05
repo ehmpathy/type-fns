@@ -1,6 +1,6 @@
 {
   "name": "checks-and-balances",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A set of type checks, guards, and predicates for simpler, safer, and easier to read code.",
   "author": "UladKasach @uladkasach",
   "license": "MIT",

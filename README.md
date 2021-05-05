@@ -1,7 +1,7 @@
-# checks-and-balances
+# simple-type-guards
 
-![ci_on_commit](https://github.com/uladkasach/checks-and-balances/workflows/ci_on_commit/badge.svg)
-![deploy_on_tag](https://github.com/uladkasach/checks-and-balances/workflows/deploy_on_tag/badge.svg)
+![ci_on_commit](https://github.com/uladkasach/simple-type-guards/workflows/ci_on_commit/badge.svg)
+![deploy_on_tag](https://github.com/uladkasach/simple-type-guards/workflows/deploy_on_tag/badge.svg)
 
 A set of type checks, guards, and predicates for simpler, safer, and easier to read code.
 
@@ -30,7 +30,7 @@ _For more information about typescripts type predicates and type guards, [see th
 # Install
 
 ```sh
-npm install --save checks-and-balances
+npm install --save simple-type-guards
 ```
 
 # Examples
@@ -41,7 +41,7 @@ The type predicate of `isPresent` any informs typescript that if a value passes 
 
 This is most useful for filtering, to inform typescript that we have removed all `null` or `undefined` values from an array. For example:
 ```ts
-import { isPresent } from 'checks-and-balances';
+import { isPresent } from 'simple-type-guards';
 
 // you have an array that contains strings or nulls
 const stringsOrNulls = ['success:1', 'success:2', null, 'success:3', null]; // type = `(string | null)[]`
@@ -57,7 +57,7 @@ strings.map((string) => string.toUpperCase()); // now you can operate on the str
 
 This library exposes a function that lets you create type check functions for any enum. For example:
 ```ts
-import { createIsOfEnum } from 'checks-and-balances';
+import { createIsOfEnum } from 'simple-type-guards';
 
 // you have an enum
 enum Planet {

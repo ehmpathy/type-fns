@@ -1,11 +1,11 @@
 {
-  "name": "checks-and-balances",
+  "name": "simple-type-guards",
   "version": "0.1.1",
   "description": "A set of type checks, guards, and predicates for simpler, safer, and easier to read code.",
   "author": "UladKasach @uladkasach",
   "license": "MIT",
-  "repository": "uladkasach/checks-and-balances",
-  "homepage": "https://github.com/uladkasach/checks-and-balances",
+  "repository": "uladkasach/simple-type-guards",
+  "homepage": "https://github.com/uladkasach/simple-type-guards",
   "keywords": [
     "domain-driven-design",
     "domain",
@@ -17,7 +17,7 @@
     "type",
     "checking"
   ],
-  "bugs": "https://github.com/uladkasach/checks-and-balances/issues",
+  "bugs": "https://github.com/uladkasach/simple-type-guards/issues",
   "main": "dist/index.js",
   "engines": {
     "node": ">=8.0.0"

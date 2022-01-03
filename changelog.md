@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.3.1](https://www.github.com/uladkasach/simple-type-guards/compare/v0.3.0...v0.3.1) (2022-01-03)
+
+
+### Bug Fixes
+
+* **doc:** fix comment describing has metadata in code ([d7d2e55](https://www.github.com/uladkasach/simple-type-guards/commit/d7d2e556ba03ad5a573f90d6ea75c5696f493058))
+
 ## [0.3.0](https://www.github.com/uladkasach/simple-type-guards/compare/v0.2.1...v0.3.0) (2022-01-03)
 
 

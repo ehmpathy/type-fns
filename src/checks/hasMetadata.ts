@@ -4,7 +4,7 @@
 type TypicalMetadataKeys = 'id' | 'uuid' | 'createdAt' | 'updatedAt' | 'effectiveAt';
 
 /**
- * assets that any optional metadata keys of the object will now be required
+ * asserts that any optional metadata keys of the object will now be required
  *
  * by default, the following keys are considered to be metadata:
  * - `id`

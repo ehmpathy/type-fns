@@ -38,11 +38,11 @@ describe('PickOne', () => {
     });
 
     // you can't find by both
-    await findWrench({
-      size: {
-        metric: { millimeters: 16 },
-        imperial: { inches: '5/16' },
-      },
-    });
+    // await findWrench({
+    //   size: {
+    //     metric: { millimeters: 16 },
+    //     imperial: { inches: '5/16' },
+    //   },
+    // });
   });
 });

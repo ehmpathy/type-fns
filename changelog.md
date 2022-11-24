@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.4.1](https://www.github.com/ehmpathy/type-fns/compare/v0.4.0...v0.4.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* **exports:** actually export isAPromise, isAFunction, PickOne ([ad5b28f](https://www.github.com/ehmpathy/type-fns/commit/ad5b28f1d2da9fe382d1245d38d970b1b0e7bd1c))
+
 ## [0.4.0](https://www.github.com/ehmpathy/type-fns/compare/v0.3.0...v0.4.0) (2022-11-24)
 
 

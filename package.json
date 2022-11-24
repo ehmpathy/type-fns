@@ -1,11 +1,11 @@
 {
-  "name": "simple-type-guards",
+  "name": "type-fns",
   "version": "0.3.0",
   "description": "A set of type checks, guards, and predicates for simpler, safer, and easier to read code.",
   "author": "UladKasach @uladkasach",
   "license": "MIT",
-  "repository": "uladkasach/simple-type-guards",
-  "homepage": "https://github.com/uladkasach/simple-type-guards",
+  "repository": "uladkasach/type-fns",
+  "homepage": "https://github.com/uladkasach/type-fns",
   "keywords": [
     "domain-driven-design",
     "domain",
@@ -17,7 +17,7 @@
     "type",
     "checking"
   ],
-  "bugs": "https://github.com/uladkasach/simple-type-guards/issues",
+  "bugs": "https://github.com/uladkasach/type-fns/issues",
   "main": "dist/index.js",
   "engines": {
     "node": ">=8.0.0"

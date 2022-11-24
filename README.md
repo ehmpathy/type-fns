@@ -1,7 +1,7 @@
 # type-fns
 
-![ci_on_commit](https://github.com/uladkasach/type-fns/workflows/ci_on_commit/badge.svg)
-![deploy_on_tag](https://github.com/uladkasach/type-fns/workflows/deploy_on_tag/badge.svg)
+![ci_on_commit](https://github.com/ehmpathy/type-fns/workflows/ci_on_commit/badge.svg)
+![deploy_on_tag](https://github.com/ehmpathy/type-fns/workflows/deploy_on_tag/badge.svg)
 
 Narrow your codepaths with generic types, type checks, and type guards for simpler, safer, and easier to read code.
 

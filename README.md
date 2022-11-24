@@ -3,29 +3,29 @@
 ![ci_on_commit](https://github.com/uladkasach/type-fns/workflows/ci_on_commit/badge.svg)
 ![deploy_on_tag](https://github.com/uladkasach/type-fns/workflows/deploy_on_tag/badge.svg)
 
-A set of type checks, guards, and predicates for simpler, safer, and easier to read code.
-
-> Check your code paths to balance expressibility vs complexity
+Narrow your codepaths with generic types, type checks, and type guards for simpler, safer, and easier to read code.
 
 # Purpose
 
-Simpler, safer, and easier to read code.
+Narrow your codepaths for simpler, safer, and easier to read code.
+- simplify your code paths with type narrowing using type checks (e.g., `isPresent`, `isAPromise`, `isAFunction`, `isOfEnum`, etc)
+- declare your types more readably with powerful extended types (e.g., `PickOne`, `HasMetadata`, etc)
 
-Type guards are built from type checks.
+This library is a collection of generic types, type guards, and type checks we've found the need to define over and over again across different domains, collected in one spot for reusability.
+
+
+
+# Background
+
+Type guards are built from type checks, built on a type predicate.
+- type predicate: `value is 'blue'`
 - type check: `const isBlue(value: any): value is 'blue' = value === 'blue'`
 - type guard: `if (isBlue(color)) throw new Error('should be blue')`
 
-Type guards allow us to check values at runtime - to protect code paths from unwanted values. These are very useful with typescript, as typescript will warn you if you dont protect certain code paths from unconstrained inputs and respect the type checking that type guards conduct.
+Type guards allow us to to inform typescript we've checked the type of a variable at runtime, enabling type narrowing.
 
-Type guards allow us to
-  - make code easier to read and write by using natural human language
-  - make code safer by using type guards to catch more unexpected states and invalid input at runtime faster
-  - make code simpler by limiting code paths based on runtime values
-  - make it easier to work with typescript, by making it easy to satisfy its concerns instead of forcing it to be quiet
+_For more information about typescripts type guards, type checks, and type predicates, [see this section in the typescript docs on "narrowing"](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates)_
 
-The goal of this library is to define a reusable set of type checks that will add value in the most cases - without adding bloat.
-
-_For more information about typescripts type predicates and type guards, [see this section in the typescript docs on "narrowing"](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates)_
 
 # Install
 
@@ -34,6 +34,62 @@ npm install --save type-fns
 ```
 
 # Examples
+
+## generic types
+
+### `PickOne`
+
+The generic type `PickOne` allows you to specify that only one of the keys in the object can be defined, the others must be undefined.
+
+This is very useful when working with an interface where you have exclusive settings. For example:
+```ts
+import { PickOne } from 'type-fns';
+
+const findWrench = async ({
+  size,
+}: {
+  /**
+   * specify the size of the wrench in either `imperial` or `metric` units
+   *
+   * note
+   * - we "PickOne" because this is an exclusive option, a size cant be defined in both
+   */
+  size: PickOne<{
+    metric: {
+      millimeters: number,
+    }
+    imperial: {
+      inches: string,
+    }
+  }>
+}) => {
+  // ...
+}
+
+// you can find by metric
+await findWrench({
+  size: {
+    metric: { millimeters: 16 }
+  }
+})
+
+// you can find by imperial
+await findWrench({
+  size: {
+    imperial: { inches: '5/16' }
+  }
+})
+
+// you can't find by both
+await findWrench({
+  size: {
+    metric: { millimeters: 16 } , // 🛑 typescript error: `Type '{ millimeters: number; }' is not assignable to type 'undefined'.ts(2322)`
+    imperial: { inches: '5/16' }
+  }
+})
+```
+
+## type guards
 
 ### `isPresent`
 
@@ -55,7 +111,7 @@ strings.map((string) => string.toUpperCase()); // now you can operate on the str
 
 ### `isOfEnum`
 
-This library exposes a function that lets you create type check functions for any enum. For example:
+The type predicate of `isOfEnum` allows you to check whether a value is a valid member of an enum. For example:
 ```ts
 import { createIsOfEnum } from 'type-fns';
 
@@ -75,11 +131,40 @@ const isPlanet = createIsOfEnum(Planet);
 if (!isPlanet(potentialPlanet)) throw new Error('is not a planet');
 ```
 
-# Features
+### `isAPromise`
 
-The following type checks are supported. Please see their definition and tests for more details
+The type predicate of `isAPromise` allows you to narrow down the type of any variable that may be a promise
 
-- `isPresent`
-- `isOfEnum`
-- `hasUuid`
-- `hasId`
+```ts
+import { isAPromise } from 'type-fns';
+
+// imagine we didn't know whether soonerOrLater is a promise or a string
+const soonerOrLater: Promise<string> | string = Promise.resolve('hello') as any;
+
+// typescript wont let you do things not common between the two types, rightly so
+soonerOrLater.toLowerCase(); //  🛑 typescript error: `Property 'toLowerCase' does not exist on type 'string | Promise<string>'.`
+
+// use the type-check to narrow down the the type to operate specifically per type
+if (isAPromise(soonerOrLater)) {
+  soonerOrLater.then((value) => value.toLowerCase()); // no error since type was narrowed to `Promise<string>`
+} else {
+  soonerOrLater.toLowerCase();  // no error since type was narrowed to `string`
+}
+```
+
+### `isAFunction`
+
+The type predicate of `isAFunction` allows you to narrow down the type of any variable that may be a function
+
+This is super helpful when writing apis that can take a literal or a function that creates the literal. For example
+```ts
+const superCoolApi = async ({
+  getConfig
+}: {
+  getConfig: Config | () => Promise<Config>  // this can be the `Config` object or a function which resolves the `Config` object
+}) => {
+  const config: Config = isAFunction(getConfig)
+    ? await getConfig() // if getConfig is a function, then execut it and await it to grab the config
+    : getConfig; // otherwise, it is the config object already
+}
+```

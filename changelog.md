@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://www.github.com/ehmpathy/type-fns/compare/v0.5.1...v0.6.0) (2022-11-25)
+
+
+### Features
+
+* **checks:** add isNotUndefined and isNotNull checks ([e810bdf](https://www.github.com/ehmpathy/type-fns/commit/e810bdf5e2ec6b9caa3e289aa8a7c693524b5e65))
+
 ### [0.5.1](https://www.github.com/ehmpathy/type-fns/compare/v0.5.0...v0.5.1) (2022-11-25)
 
 

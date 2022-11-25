@@ -7,4 +7,5 @@ export * from './wrappers/withNot';
 export * from './checks/isAFunction';
 export * from './checks/isAPromise';
 export * from './types/PickOne';
-export * from './types/NotUndefined';
+export * from './checks/isNotNull';
+export * from './checks/isNotUndefined';

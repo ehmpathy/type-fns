@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.5.1](https://www.github.com/ehmpathy/type-fns/compare/v0.5.0...v0.5.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* **exports:** actually export NotUndefined ([1869b05](https://www.github.com/ehmpathy/type-fns/commit/1869b05e59764b3b822298dac223b9cb09b02fc0))
+
 ## [0.5.0](https://www.github.com/ehmpathy/type-fns/compare/v0.4.1...v0.5.0) (2022-11-25)
 
 

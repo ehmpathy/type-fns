@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://www.github.com/ehmpathy/type-fns/compare/v0.4.1...v0.5.0) (2022-11-25)
+
+
+### Features
+
+* **types:** add the NotUndefined generic type ([bd613c2](https://www.github.com/ehmpathy/type-fns/commit/bd613c27ced111eb44c971734ab343a9cd2fbe8e))
+
 ### [0.4.1](https://www.github.com/ehmpathy/type-fns/compare/v0.4.0...v0.4.1) (2022-11-24)
 
 

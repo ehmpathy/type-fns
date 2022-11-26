@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://www.github.com/ehmpathy/type-fns/compare/v0.6.0...v0.7.0) (2022-11-26)
+
+
+### Features
+
+* **checks:** define the hasMetadata type check function ([64b788f](https://www.github.com/ehmpathy/type-fns/commit/64b788fcf1348c654d920750a56bbc77dc3e6dad))
+
 ## [0.6.0](https://www.github.com/ehmpathy/type-fns/compare/v0.5.1...v0.6.0) (2022-11-25)
 
 

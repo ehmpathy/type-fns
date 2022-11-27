@@ -9,3 +9,4 @@ export * from './checks/isAPromise';
 export * from './types/PickOne';
 export * from './checks/isNotNull';
 export * from './checks/isNotUndefined';
+export * from './types/DropFirst';

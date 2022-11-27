@@ -89,6 +89,20 @@ await findWrench({
 })
 ```
 
+### `DropFirst`
+
+The generic type `DropFirst` lets you exclude the first element of an array.
+
+```ts
+type NumberStringString = [number, string, string];
+const numStrStr: NumberStringString = [1, '2', '3'];
+const strStr: DropFirst<NumberStringString> = ['1', '2'];
+const str: string = strStr[0];
+const num: number = numStrStr[0];
+```
+
+Useful, for example, if you want to change the first parameter of a function while keeping the rest the same.
+
 ## type guards
 
 ### `isPresent`

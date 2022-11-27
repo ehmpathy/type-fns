@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://www.github.com/ehmpathy/type-fns/compare/v0.7.0...v0.8.0) (2022-11-27)
+
+
+### Features
+
+* **types:** add DropFirst generic type ([fc3a214](https://www.github.com/ehmpathy/type-fns/commit/fc3a214071c3c975840ffea41b02290829359da4))
+
 ## [0.7.0](https://www.github.com/ehmpathy/type-fns/compare/v0.6.0...v0.7.0) (2022-11-26)
 
 

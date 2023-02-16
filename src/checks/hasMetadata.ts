@@ -1,7 +1,13 @@
 /**
  * these are the keys most commonly used metadata keys
  */
-const typicalMetadataKeys = ['id', 'uuid', 'createdAt', 'updatedAt', 'effectiveAt'] as const;
+const typicalMetadataKeys = [
+  'id',
+  'uuid',
+  'createdAt',
+  'updatedAt',
+  'effectiveAt',
+] as const;
 /**
  * these are the keys most commonly used metadata keys
  */
@@ -23,7 +29,10 @@ type TypicalMetadataKeys = typeof typicalMetadataKeys[number];
  * - this type does not _add_ any metadata properties to the type definition
  *   - i.e., if a metadata key was not already present on the object's type - it will not be added
  */
-export type HasMetadata<T extends Record<string, any>, MetadataKeys = TypicalMetadataKeys> = T &
+export type HasMetadata<
+  T extends Record<string, any>,
+  MetadataKeys = TypicalMetadataKeys,
+> = T &
   // require all keys
   Required<
     Pick<
@@ -45,7 +54,11 @@ export type HasMetadata<T extends Record<string, any>, MetadataKeys = TypicalMet
  *
  * see more information about the `HasMetadata` type in its jsdoc on-hover documentation
  */
-export const hasMetadata = <MetadataKeys extends string = TypicalMetadataKeys, T extends Record<string, any> = Record<string, any>>(
+export const hasMetadata = <
+  MetadataKeys extends string = TypicalMetadataKeys,
+  T extends Record<string, any> = Record<string, any>,
+>(
   obj: T,
-  keys: MetadataKeys[] = (typicalMetadataKeys as any) as MetadataKeys[],
-): obj is HasMetadata<T, typeof keys[number]> => keys.every((key) => obj[key] !== undefined);
+  keys: MetadataKeys[] = typicalMetadataKeys as any as MetadataKeys[],
+): obj is HasMetadata<T, typeof keys[number]> =>
+  keys.every((key) => obj[key] !== undefined);

@@ -1,9 +1,4 @@
 /**
- * `Something` = `any`, with the exclusion of `null` and `undefined`
- */
-type Something = {};
-
-/**
  * a generic fn that allows us to create type checks for enums. for example:
  * ```ts
  *   // you have an enum
@@ -24,4 +19,7 @@ type Something = {};
  *
  * ref: https://stackoverflow.com/a/58278753/3068233
  */
-export const createIsOfEnum = <T>(e: T) => (token: Something): token is T[keyof T] => Object.values(e).includes(token as T[keyof T]);
+export const createIsOfEnum =
+  <T extends { [index: string | number | symbol]: string | number }>(e: T) =>
+  (token: string | number | symbol): token is T[keyof T] =>
+    Object.values(e).includes(token as T[keyof T]);

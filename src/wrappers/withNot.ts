@@ -8,4 +8,7 @@
  * const invalidOptions = objects.filter(withNot(isOfStatus));
  * ```
  */
-export const withNot = <T>(is: (args: T) => boolean): ((args: T) => boolean) => (args: T) => !is(args);
+export const withNot =
+  <T>(is: (args: T) => boolean): ((args: T) => boolean) =>
+  (args: T) =>
+    !is(args);

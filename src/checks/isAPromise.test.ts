@@ -11,13 +11,15 @@ describe('isAPromise', () => {
   });
   it('should be usable to narrow the typescript type', () => {
     // imagine we didn't know whether soonerOrLater is a promise or a string
-    const soonerOrLater: Promise<string> | string = Promise.resolve('hello') as any;
+    const soonerOrLater: Promise<string> | string = Promise.resolve(
+      'hello',
+    ) as any;
 
     // we can use this check to narrow down the typescript type and do operations specific to each type
     if (isAPromise(soonerOrLater)) {
-      soonerOrLater.then(() => 'done');
+      void soonerOrLater.then(() => 'done');
     } else {
-      soonerOrLater.toLowerCase();
+      void soonerOrLater.toLowerCase();
     }
   });
 });

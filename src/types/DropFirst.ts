@@ -7,4 +7,6 @@
  * ref
  * - https://stackoverflow.com/questions/63024617/how-to-reference-all-parameters-except-first-in-typescript
  */
-export type DropFirst<T extends unknown[]> = T extends [any, ...(infer U)] ? U : never;
+export type DropFirst<T extends unknown[]> = T extends [any, ...infer U]
+  ? U
+  : never;

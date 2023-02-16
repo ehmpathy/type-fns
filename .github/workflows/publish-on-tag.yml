@@ -10,18 +10,28 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: checkout
-        uses: actions/checkout@v1
-
-      - uses: actions/setup-node@v1
+        uses: actions/checkout@v2
         with:
-          node-version: '12.x'
+          fetch-depth: 0 # we need all commits to test:commits
+
+      - name: read nvmrc
+        id: nvmrc
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+
+      - name: setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
           registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
 
       - name: install
-        run: npm install
+        run: npm ci
 
       - name: tests
         run: npm run test
+        env:
+          FORCE_COLOR: true # ensure colors are saved in jest snapshots, to be consistent with local development
 
       - name: publish
         run: npm publish

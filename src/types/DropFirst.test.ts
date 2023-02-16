@@ -1,3 +1,5 @@
+import { DropFirst } from './DropFirst';
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 describe('DropFirst', () => {
   it('should be drop the first type in an array', () => {

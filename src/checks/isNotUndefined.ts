@@ -9,4 +9,5 @@ export type NotUndefined<T> = T extends undefined ? never : T;
 /**
  * checks whether the value is not undefined
  */
-export const isNotUndefined = <T>(val: T): val is NotUndefined<T> => typeof val !== 'undefined';
+export const isNotUndefined = <T>(val: T): val is NotUndefined<T> =>
+  typeof val !== 'undefined';

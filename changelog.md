@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.1](https://github.com/ehmpathy/type-fns/compare/v0.8.0...v0.8.1) (2023-02-16)
+
+
+### Bug Fixes
+
+* **cicd:** skip integration test provision step in cicd ([e5e64ae](https://github.com/ehmpathy/type-fns/commit/e5e64aefa763d65400696c5bad1b7fb7aaba059a))
+* **practs:** upgrade to declapract-typescript-ehmpathy best practices ([6915660](https://github.com/ehmpathy/type-fns/commit/6915660c0a9a6101ee9afd505f65ac2731cd43a7))
+
 ## [0.8.0](https://www.github.com/ehmpathy/type-fns/compare/v0.7.0...v0.8.0) (2022-11-27)
 
 

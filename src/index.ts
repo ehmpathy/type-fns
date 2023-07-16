@@ -10,3 +10,5 @@ export * from './types/PickOne';
 export * from './checks/isNotNull';
 export * from './checks/isNotUndefined';
 export * from './types/DropFirst';
+export * from './companions/omit';
+export * from './companions/pick';

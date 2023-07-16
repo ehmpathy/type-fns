@@ -11,6 +11,7 @@
     "sourceMap": true,
     "outDir": "dist",
     "target": "es6",
+    "exactOptionalPropertyTypes": false
   },
   "include": [
     "**/*.ts"
@@ -18,6 +19,6 @@
   "exclude": [
     "dist",
     "coverage",
-    "node_modules",
+    "node_modules"
   ]
 }

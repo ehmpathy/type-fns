@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.9.0](https://github.com/ehmpathy/type-fns/compare/v0.8.1...v0.9.0) (2023-07-16)
+
+
+### Features
+
+* **companions:** add pick and omit companion methods ([2aed5a5](https://github.com/ehmpathy/type-fns/commit/2aed5a523b3fc6ca58db5213a57b9e11e790eec2)), closes [#16](https://github.com/ehmpathy/type-fns/issues/16)
+
+
+### Bug Fixes
+
+* **audit:** resolve security vulnerabilities with audit fix ([90cdbd2](https://github.com/ehmpathy/type-fns/commit/90cdbd22e388e3ab4c84ff03133084bf5f2751f0))
+
 ## [0.8.1](https://github.com/ehmpathy/type-fns/compare/v0.8.0...v0.8.1) (2023-02-16)
 
 

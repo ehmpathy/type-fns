@@ -6,6 +6,7 @@ const typicalMetadataKeys = [
   'uuid',
   'createdAt',
   'updatedAt',
+  'deletedAt',
   'effectiveAt',
 ] as const;
 /**
@@ -21,6 +22,7 @@ type TypicalMetadataKeys = typeof typicalMetadataKeys[number];
  * - `uuid`
  * - `createdAt`
  * - `updatedAt`
+ * - `deletedAt`
  * - `effectiveAt`
  *
  * note:
@@ -50,6 +52,7 @@ export type HasMetadata<
  * - `uuid`
  * - `createdAt`
  * - `updatedAt`
+ * - `deletedAt`
  * - `effectiveAt`
  *
  * see more information about the `HasMetadata` type in its jsdoc on-hover documentation

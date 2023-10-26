@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.9.1](https://github.com/ehmpathy/type-fns/compare/v0.9.0...v0.9.1) (2023-10-26)
+
+
+### Bug Fixes
+
+* **checks:** include deletedAt as a common metadata key ([7791c38](https://github.com/ehmpathy/type-fns/commit/7791c380c0f3f6513ebe476b7915b364c398689a))
+* **docs:** remove outdated cicd badges ([7c6499a](https://github.com/ehmpathy/type-fns/commit/7c6499aa52c35353e2b303ee79f3fcc85e81d065))
+
 ## [0.9.0](https://github.com/ehmpathy/type-fns/compare/v0.8.1...v0.9.0) (2023-07-16)
 
 

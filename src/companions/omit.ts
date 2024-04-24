@@ -1,10 +1,13 @@
 /**
  * a companion to the `Omit` type, returns a new object without the omitted attributes
  */
-export const omit = <T extends Record<string, any>>(
+export const omit = <
+  T extends Record<string, any>,
+  K extends readonly (keyof T)[],
+>(
   obj: T,
-  keys: (keyof T)[],
-): Omit<T, typeof keys[number]> =>
+  keys: K,
+): Omit<T, K[number]> =>
   Object.entries(obj).reduce((summary, [key, value]) => {
     // if key is in the specified keys, dont add it to the new object
     if (keys.includes(key)) return summary;

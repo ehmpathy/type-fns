@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.9.2](https://github.com/ehmpathy/type-fns/compare/v0.9.1...v0.9.2) (2024-04-24)
+
+
+### Bug Fixes
+
+* **omit:** ensure omit satisfies Omit standard type ([90552cc](https://github.com/ehmpathy/type-fns/commit/90552cc459f663533ac12fde195d9f2c72137cda))
+* **pick:** ensure pick satisfies Pick standard type ([cc4fd3d](https://github.com/ehmpathy/type-fns/commit/cc4fd3d253a2d3280cfb135463da2319cdcc83a1))
+
 ## [0.9.1](https://github.com/ehmpathy/type-fns/compare/v0.9.0...v0.9.1) (2023-10-26)
 
 

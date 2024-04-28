@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/ehmpathy/type-fns/compare/v0.9.2...v0.10.0) (2024-04-28)
+
+
+### Features
+
+* **enum:** expand isOfEnum with backwards compat assess and assure ([72ac7ac](https://github.com/ehmpathy/type-fns/commit/72ac7ac7b7f1055d0f7b61fe2fb5f62c98cd8738))
+
 ## [0.9.2](https://github.com/ehmpathy/type-fns/compare/v0.9.1...v0.9.2) (2024-04-24)
 
 

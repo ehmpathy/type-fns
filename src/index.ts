@@ -12,3 +12,4 @@ export * from './checks/isNotUndefined';
 export * from './types/DropFirst';
 export * from './companions/omit';
 export * from './companions/pick';
+export * from './types/Literalize';

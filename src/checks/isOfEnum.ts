@@ -2,9 +2,7 @@ import { UnexpectedCodePathError } from '../utils/errors/UnexpectedCodePathError
 
 type AssessMethod<
   T extends { [index: string | number | symbol]: string | number },
-> = (
-  token: string | number | symbol,
-) => token is T[keyof T] & ((token: string | number | symbol) => boolean);
+> = (token: string | number | symbol) => token is T[keyof T];
 type AssureMethod<
   T extends { [index: string | number | symbol]: string | number },
 > = <I extends string | number | symbol>(input: I) => I & T[keyof T];

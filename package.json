@@ -2,7 +2,7 @@
   "name": "type-fns",
   "author": "ehmpathy",
   "description": "A set of types, type checks, and type guards for simpler, safer, and easier to read code.",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "repository": "ehmpathy/type-fns",
   "homepage": "https://github.com/ehmpathy/type-fns",
   "keywords": [

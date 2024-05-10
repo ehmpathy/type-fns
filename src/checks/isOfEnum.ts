@@ -1,11 +1,5 @@
-import { UnexpectedCodePathError } from '../utils/errors/UnexpectedCodePathError';
+import { withAssure } from '../wrappers/withAssure';
 
-type AssessMethod<
-  T extends { [index: string | number | symbol]: string | number },
-> = (token: string | number | symbol) => token is T[keyof T];
-type AssureMethod<
-  T extends { [index: string | number | symbol]: string | number },
-> = <I extends string | number | symbol>(input: I) => I & T[keyof T];
 /**
  * a generic fn that allows us to create type checks for enums. for example:
  * ```ts
@@ -34,29 +28,8 @@ export const createIsOfEnum = <
   T extends { [index: string | number | symbol]: string | number },
 >(
   e: T,
-): {
-  assess: AssessMethod<T>;
-  assure: AssureMethod<T>;
-} & AssessMethod<T> => {
-  const assess = (token: string | number | symbol): token is T[keyof T] =>
+) => {
+  const check = (token: string | number | symbol): token is T[keyof T] =>
     Object.values(e).includes(token as T[keyof T]);
-  const assure = <I extends string | number | symbol>(input: I) =>
-    assess(input)
-      ? input
-      : (() => {
-          throw new UnexpectedCodePathError(
-            'is not of DeclaredGoogleAdsCriterionUserInterestTaxonomy',
-          );
-        })();
-  const result = function (
-    ...input: Parameters<typeof assess>
-  ): ReturnType<typeof assess> {
-    return assess(...input);
-  } as AssessMethod<T> & {
-    assess: any;
-    assure: any;
-  };
-  result.assess = assess;
-  result.assure = assure;
-  return result;
+  return withAssure(check);
 };

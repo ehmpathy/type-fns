@@ -70,7 +70,7 @@ describe('isPresent', () => {
 
         const shouldWork: number = isPresent.assure(input);
 
-        // @ts-expect-error
+        // @ts-expect-error // input could be null or undefined
         const shouldFail: number = input;
       });
       then('it should assure correctly, for null', () => {

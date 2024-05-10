@@ -10,8 +10,8 @@ describe('Literalize', () => {
 
     type BerryLit = Literalize<Berry>;
 
-    // @ts-expect-error
-    const before: Berry = 'raspberry'; // 🛑 Type '"raspberry"' is not assignable to type 'Berries'.ts(2322)
+    // @ts-expect-error // 🛑 Type '"raspberry"' is not assignable to type 'Berries'.ts(2322)
+    const before: Berry = 'raspberry';
 
     // after
     const literally: BerryLit = 'raspberry';

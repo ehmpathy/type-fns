@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.12.0](https://github.com/ehmpathy/type-fns/compare/v0.11.0...v0.12.0) (2024-05-11)
+
+
+### Features
+
+* **assure:** expose generic withAssure wrapper; also, withAssure isPresent ([009b29e](https://github.com/ehmpathy/type-fns/commit/009b29ef4c96e043ba84a5a9e41637f8517226d3))
+
+
+### Bug Fixes
+
+* **lint:** upgrade eslint to support typescript v5 ([57530dc](https://github.com/ehmpathy/type-fns/commit/57530dc61e727f6035cf0aa030e6f6ad1f290586))
+
 ## [0.11.0](https://github.com/ehmpathy/type-fns/compare/v0.10.0...v0.11.0) (2024-05-09)
 
 

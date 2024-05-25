@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.0](https://github.com/ehmpathy/type-fns/compare/v1.14.0...v1.15.0) (2024-05-25)
+
+
+### Features
+
+* **types:** add PickAny type, symmetric with PickOne ([71cb283](https://github.com/ehmpathy/type-fns/commit/71cb283402577635149758b8474fa9e6f134ecb4))
+
 ## [1.14.0](https://github.com/ehmpathy/type-fns/compare/v1.13.0...v1.14.0) (2024-05-25)
 
 

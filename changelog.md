@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/ehmpathy/type-fns/compare/v1.13.0...v1.14.0) (2024-05-25)
+
+
+### Features
+
+* **checks:** add isKeyOf check ([982f63d](https://github.com/ehmpathy/type-fns/commit/982f63ded16d1fbd3bd3bac77753399b395b37e7))
+
 ## [1.13.0](https://github.com/ehmpathy/type-fns/compare/v0.12.0...v1.13.0) (2024-05-14)
 
 

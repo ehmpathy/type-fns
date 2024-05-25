@@ -14,3 +14,4 @@ export * from './companions/omit';
 export * from './companions/pick';
 export * from './types/Literalize';
 export * from './wrappers/withAssure';
+export * from './checks/isKeyOf';

@@ -9,6 +9,7 @@ const typicalMetadataKeys = [
   'deletedAt',
   'effectiveAt',
 ] as const;
+
 /**
  * these are the keys most commonly used metadata keys
  */
@@ -42,6 +43,28 @@ export type HasMetadata<
       keyof T & // that are on the object
         MetadataKeys // and are metadata keys
     >
+  >;
+
+/**
+ * asserts that any optional metadata keys of the object will now be omitted
+ *
+ * by default, the following keys are considered to be metadata:
+ * - `id`
+ * - `uuid`
+ * - `createdAt`
+ * - `updatedAt`
+ * - `deletedAt`
+ * - `effectiveAt`
+ */
+export type OmitMetadata<
+  T extends Record<string, any>,
+  MetadataKeys = TypicalMetadataKeys,
+> =
+  // omit all keys
+  Omit<
+    T,
+    keyof T & // that are on the object
+      MetadataKeys // and are metadata keys
   >;
 
 /**

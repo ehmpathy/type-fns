@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.0](https://github.com/ehmpathy/type-fns/compare/v1.15.0...v1.16.0) (2024-06-14)
+
+
+### Features
+
+* **metadata:** expose OmitMetadata generic ([20bfea9](https://github.com/ehmpathy/type-fns/commit/20bfea9e8a36a11c885a1c2598f817dffff8d294))
+
 ## [1.15.0](https://github.com/ehmpathy/type-fns/compare/v1.14.0...v1.15.0) (2024-05-25)
 
 

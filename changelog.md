@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.0](https://github.com/ehmpathy/type-fns/compare/v1.16.0...v1.17.0) (2024-07-27)
+
+
+### Features
+
+* **practs:** bump practs and resolve audit ([e1e7844](https://github.com/ehmpathy/type-fns/commit/e1e7844aedf4e5b805c5d72643606c20b5248dd6))
+
 ## [1.16.0](https://github.com/ehmpathy/type-fns/compare/v1.15.0...v1.16.0) (2024-06-14)
 
 

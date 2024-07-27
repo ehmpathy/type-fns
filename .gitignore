@@ -1,9 +1,11 @@
 *.log
+*.tsbuildinfo
 .artifact
 .env
 .serverless
 .terraform
 .terraform.lock
+.yalc
 coverage
 dist
 node_modules

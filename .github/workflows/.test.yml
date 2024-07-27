@@ -20,30 +20,13 @@ on:
         description: required credentials to authenticate with aws the aws account against which to run the tests
 
 jobs:
+  # install the dependencies
   install:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: set node version
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-
-      - name: install
-        run: npm ci --ignore-scripts
-
-      - name: cache node modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ github.sha }}
+    uses: ./.github/workflows/.install.yml
 
   # run tests in parallel
   test-commits:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [install]
     steps:
       - name: checkout
@@ -51,127 +34,121 @@ jobs:
         with:
           fetch-depth: 0 # we need all commits to test:commits
 
-      - name: set node version
+      - name: set node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
 
-      - name: grab node_modules from cache
-        uses: actions/cache@v2
+      - name: get node-modules from cache
+        uses: actions/cache/restore@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ github.sha }}
+          path: ./node_modules
+          key: ${{ needs.install.outputs.node-modules-cache-key }}
 
       - name: test:commits
         run: npm run test:commits
 
   test-types:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [install]
     steps:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: set node version
+      - name: set node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
 
-      - name: grab node_modules from cache
-        uses: actions/cache@v2
+      - name: get node-modules from cache
+        uses: actions/cache/restore@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ github.sha }}
+          path: ./node_modules
+          key: ${{ needs.install.outputs.node-modules-cache-key }}
 
       - name: test:types
         run: npm run test:types
 
   test-format:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [install]
     steps:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: set node version
+      - name: set node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
 
-      - name: grab node_modules from cache
-        uses: actions/cache@v2
+      - name: get node-modules from cache
+        uses: actions/cache/restore@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ github.sha }}
+          path: ./node_modules
+          key: ${{ needs.install.outputs.node-modules-cache-key }}
 
       - name: test:format
         run: npm run test:format
 
   test-lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [install]
     steps:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: set node version
+      - name: set node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
 
-      - name: grab node_modules from cache
-        uses: actions/cache@v2
+      - name: get node-modules from cache
+        uses: actions/cache/restore@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ github.sha }}
+          path: ./node_modules
+          key: ${{ needs.install.outputs.node-modules-cache-key }}
 
       - name: test:lint
         run: npm run test:lint
 
   test-unit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [install]
     steps:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: set node version
+      - name: set node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
 
-      - name: grab node_modules from cache
-        uses: actions/cache@v2
+      - name: get node-modules from cache
+        uses: actions/cache/restore@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ github.sha }}
+          path: ./node_modules
+          key: ${{ needs.install.outputs.node-modules-cache-key }}
 
       - name: test:unit
-        run: npm run test:unit
+        run: THOROUGH=true npm run test:unit
 
   test-integration:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [install]
     steps:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: set node version
+      - name: set node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
 
-      - name: grab node_modules from cache
-        uses: actions/cache@v2
+      - name: get node-modules from cache
+        uses: actions/cache/restore@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ github.sha }}
+          path: ./node_modules
+          key: ${{ needs.install.outputs.node-modules-cache-key }}
 
       - name: configure aws credentials
         if: "${{ inputs.aws-account-id != '' }}"
@@ -193,26 +170,25 @@ jobs:
         run: npm run provision:integration-test-db --if-present
 
       - name: test:integration
-        run: npm run test:integration
+        run: THOROUGH=true npm run test:integration
 
   test-acceptance-locally:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [install]
     steps:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: set node version
+      - name: set node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
 
-      - name: grab node_modules from cache
-        uses: actions/cache@v2
+      - name: get node-modules from cache
+        uses: actions/cache/restore@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ github.sha }}
+          path: ./node_modules
+          key: ${{ needs.install.outputs.node-modules-cache-key }}
 
       - name: configure aws credentials
         if: "${{ inputs.aws-account-id != '' }}"

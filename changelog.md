@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.0](https://github.com/ehmpathy/type-fns/compare/v1.17.0...v1.18.0) (2024-08-18)
+
+
+### Features
+
+* **array:** expose ArrayWith type declaration ([7855ac5](https://github.com/ehmpathy/type-fns/commit/7855ac529cfd30f463fd7f5657345839af3150d3))
+
 ## [1.17.0](https://github.com/ehmpathy/type-fns/compare/v1.16.0...v1.17.0) (2024-07-27)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.0](https://github.com/ehmpathy/type-fns/compare/v1.18.0...v1.19.0) (2024-08-30)
+
+
+### Features
+
+* **types:** expose the Empty type ([507fdb8](https://github.com/ehmpathy/type-fns/commit/507fdb8a5e9a4354fd5a422115b4ffc30cd20b65))
+
 ## [1.18.0](https://github.com/ehmpathy/type-fns/compare/v1.17.0...v1.18.0) (2024-08-18)
 
 

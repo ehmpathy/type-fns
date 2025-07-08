@@ -12,7 +12,7 @@ module.exports = {
     sourceType: 'module', // Allows for the use of imports
   },
   rules: {
-    '@typescript-eslint/explicit-module-boundary-types': 'warn', // makes code-reviews easier + code quality better by explicitly defining outputs of exported functions+classes
+    '@typescript-eslint/explicit-module-boundary-types': 'error', // makes code-reviews easier + code quality better by explicitly defining outputs of exported functions+classes
     '@typescript-eslint/explicit-function-return-type': 'off', // prefer '@typescript-eslint/explicit-module-boundary-types' since it only requires the check on exported functions+classes
     'sort-imports': 'off',
     'import/prefer-default-export': 'off', // default export = bad
@@ -44,5 +44,6 @@ module.exports = {
     'no-return-await': 'off', // this does not help anything and actually leads to bugs if we subsequently wrap the return in a try catch without remembering to _then_ add await
     '@typescript-eslint/return-await': 'off',
     '@typescript-eslint/no-unsafe-declaration-merging': 'off', // dobjs are built off of this
+    '@typescript-eslint/default-param-last': 'off', // interferes with input vs context
   },
 };

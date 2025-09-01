@@ -1,4 +1,4 @@
-import { HelpfulError } from '@ehmpathy/error-fns';
+import { HelpfulError } from 'helpful-errors';
 
 export type AssessIsOfTypeMethod<I, C extends I> = (input: I) => input is C;
 export type AssureIsOfTypeMethod<I, C extends I> = (input: I) => C;

@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.20.0](https://github.com/ehmpathy/type-fns/compare/v1.19.0...v1.20.0) (2025-07-08)
+
+
+### Features
+
+* **checks:** expose isNotPromise check and NotPromise type ([9e1edf5](https://github.com/ehmpathy/type-fns/commit/9e1edf576038dbebeca7378aa4ee47a607c3dd03))
+
+
+### Bug Fixes
+
+* **practs:** bump to latest best ([ad6b32d](https://github.com/ehmpathy/type-fns/commit/ad6b32d575e0dc510ecfd2d6034534e676f138f4))
+
 ## [1.19.0](https://github.com/ehmpathy/type-fns/compare/v1.18.0...v1.19.0) (2024-08-30)
 
 

@@ -1,9 +1,8 @@
 import { asAssure } from '../wrappers/withAssure';
-import { NotNull, isNotNull } from './isNotNull';
-import { IsDefined, isDefined } from './isNotUndefined';
+import { NotNull } from './isNotNull';
+import { IsDefined } from './isNotUndefined';
+import { isPresentAssess as assess } from './isPresent.assess';
 
-const assess = <T>(t: T): t is NotNull<IsDefined<T>> =>
-  isNotNull(t) && isDefined(t);
 const assure = asAssure(assess, { name: 'isPresent' });
 
 interface IsPresentWithAssure {

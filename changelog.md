@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.1](https://github.com/ehmpathy/type-fns/compare/v1.20.0...v1.20.1) (2025-09-01)
+
+
+### Bug Fixes
+
+* **practs:** bump to latest best; drop extra deps ([#34](https://github.com/ehmpathy/type-fns/issues/34)) ([4119498](https://github.com/ehmpathy/type-fns/commit/4119498d0bc9291fd99207c97a415bc9dc9d96ce))
+
 ## [1.20.0](https://github.com/ehmpathy/type-fns/compare/v1.19.0...v1.20.0) (2025-07-08)
 
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.20.2](https://github.com/ehmpathy/type-fns/compare/v1.20.1...v1.20.2) (2025-09-01)
+
+
+### Bug Fixes
+
+* **contract:** support isPresent.assess import without assure ([#37](https://github.com/ehmpathy/type-fns/issues/37)) ([0acfbac](https://github.com/ehmpathy/type-fns/commit/0acfbac5535a85cc9e601a97b01680bf2a8816ae))
+* **readme:** add badges to the readme ([#36](https://github.com/ehmpathy/type-fns/issues/36)) ([b49deac](https://github.com/ehmpathy/type-fns/commit/b49deac6940aee2eb85edff5fa3ea6cce6bb84ee))
+
 ## [1.20.1](https://github.com/ehmpathy/type-fns/compare/v1.20.0...v1.20.1) (2025-09-01)
 
 

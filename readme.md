@@ -1,5 +1,8 @@
 # type-fns
 
+![test](https://github.com/ehmpathy/type-fns/workflows/test/badge.svg)
+![publish](https://github.com/ehmpathy/type-fns/workflows/publish/badge.svg)
+
 Narrow your codepaths with generic types, type checks, and type guards for simpler, safer, and easier to read code.
 
 # Purpose

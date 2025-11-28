@@ -182,3 +182,28 @@ const superCoolApi = async ({
     : getConfig; // otherwise, it is the config object already
 }
 ```
+
+### `assure`
+
+The `assure` function takes a value and a type check, returns the value narrowed to the checked type if it passes, or throws an error if it doesn't.
+
+This is useful to narrow types inline with runtime validation in a single expression, without needing to wrap your type checks with `withAssure` first.
+
+```ts
+import { assure } from 'type-fns';
+
+// define or import a type check
+type Uuid = string & { __brand: 'Uuid' };
+const isUuid = (value: string): value is Uuid =>
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
+
+// use assure to narrow and validate in one expression
+const uuid: Uuid = assure('821e33d6-a330-425d-a393-f97e39113046', isUuid); // returns the value as Uuid
+const bad: Uuid = assure('not-a-uuid', isUuid); // throws AssureIsOfTypeRejectionError
+
+// works great for inline validation
+const processUser = (input: { uuid: string }) => {
+  const userUuid: Uuid = assure(input.uuid, isUuid); // throws if invalid, narrows type if valid
+  // ...
+};
+```

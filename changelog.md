@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.21.0](https://github.com/ehmpathy/type-fns/compare/v1.20.2...v1.21.0) (2025-11-28)
+
+
+### Features
+
+* **assure:** narrow types more composably via assure type guard ([76f6b8e](https://github.com/ehmpathy/type-fns/commit/76f6b8ef3736d19bdbcfe517dfcabe83ae077dad))
+
+
+### Bug Fixes
+
+* **audit:** apply npm audit fix ([5570f66](https://github.com/ehmpathy/type-fns/commit/5570f661189313173f8fdabcee53f9c5f2a917f0))
+
 ## [1.20.2](https://github.com/ehmpathy/type-fns/compare/v1.20.1...v1.20.2) (2025-09-01)
 
 

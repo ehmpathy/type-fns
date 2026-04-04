@@ -61,11 +61,12 @@ export const withAssure = <I, C extends I>(
   options?: { name: string },
 ): AssessWithAssure<I, C> => {
   const assure = asAssure(assess, options);
-  const result = function (
+  const result = ((
     ...input: Parameters<typeof assess>
-  ): ReturnType<typeof assess> {
-    return assess(...input);
-  } as AssessIsOfTypeMethod<I, C> & {
+  ): ReturnType<typeof assess> => assess(...input)) as AssessIsOfTypeMethod<
+    I,
+    C
+  > & {
     assess: any;
     assure: any;
   };

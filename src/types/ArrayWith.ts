@@ -17,7 +17,7 @@ type BuildArrayWith<
 /**
  * declares a type of array with a check on its length
  */
-type ArrayWith<
+export type ArrayWith<
   TCheck extends 'len' | 'min', // todo: support 'max' too?
   TLength extends number,
   TType,

@@ -1,5 +1,5 @@
 import { hasMetadata } from '..';
-import { HasMetadata, OmitMetadata } from './hasMetadata';
+import type { HasMetadata, OmitMetadata } from './hasMetadata';
 
 describe('HasMetadata', () => {
   it('should enable accessing an optional metadata property of a type', () => {
@@ -14,7 +14,7 @@ describe('OmitMetadata', () => {
     type FlowerPot = { id?: number; age: number };
 
     // @ts-expect-error - should not be able to set id
-    const pot: OmitMetadata<FlowerPot> = { id: 123, age: 72 };
+    const _pot: OmitMetadata<FlowerPot> = { id: 123, age: 72 };
   });
   it('should prevent accessing a metadata property of a type', () => {
     type FlowerPot = { id?: number; age: number };

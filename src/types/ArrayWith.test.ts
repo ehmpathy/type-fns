@@ -1,4 +1,6 @@
-import { given, then, when } from 'test-fns';
+import { given, then } from 'test-fns';
+
+import type { ArrayWith } from './ArrayWith';
 
 describe('ArrayWith', () => {
   given('desire for array with min length', () => {

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { isNotUndefined, NotUndefined } from '..';
+import { isNotUndefined, type NotUndefined } from '..';
 
 describe('isNotUndefined', () => {
   it('should constrain type correctly', async () => {

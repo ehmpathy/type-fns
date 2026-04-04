@@ -1,6 +1,7 @@
-import { asAssure } from '../wrappers/withAssure';
-import { NotNull } from './isNotNull';
-import { IsDefined } from './isNotUndefined';
+import { asAssure } from '@src/wrappers/withAssure';
+
+import type { NotNull } from './isNotNull';
+import type { IsDefined } from './isNotUndefined';
 import { isPresentAssess as assess } from './isPresent.assess';
 
 const assure = asAssure(assess, { name: 'isPresent' });
@@ -17,11 +18,9 @@ interface IsPresentWithAssure {
  * refs
  * - https://github.com/microsoft/TypeScript/issues/16069#issuecomment-566222173
  */
-const isPresentWithAssure: IsPresentWithAssure = function (
+const isPresentWithAssure: IsPresentWithAssure = ((
   ...input: Parameters<typeof assess>
-): ReturnType<typeof assess> {
-  return assess(...input);
-} as typeof assess & {
+): ReturnType<typeof assess> => assess(...input)) as typeof assess & {
   assess: typeof assess;
   assure: typeof assure;
 };

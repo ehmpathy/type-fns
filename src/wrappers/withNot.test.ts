@@ -1,4 +1,5 @@
-import { hasId } from '../checks/hasId';
+import { hasId } from '@src/checks/hasId';
+
 import { withNot } from './withNot';
 
 describe('withNot', () => {

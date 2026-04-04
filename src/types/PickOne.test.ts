@@ -1,8 +1,8 @@
-import { PickOne } from './PickOne';
+import type { PickOne } from './PickOne';
 
 describe('PickOne', () => {
   it('should constrain type correctly', async () => {
-    const findWrench = async ({}: {
+    const findWrench = async (_input: {
       /**
        * specify the size of the wrench in either `imperial` or `metric` units
        *

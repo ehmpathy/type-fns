@@ -1,7 +1,7 @@
 import {
-  AssessIsOfTypeMethod,
+  type AssessIsOfTypeMethod,
   AssureIsOfTypeRejectionError,
-} from '../wrappers/withAssure';
+} from '@src/wrappers/withAssure';
 
 /**
  * what: a standalone assure function that takes a value and a type.check, returning the value if it passes or throwing if it doesn't

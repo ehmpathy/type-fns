@@ -12,11 +12,8 @@ importers:
         specifier: 0.31.10
         version: 0.31.10
       helpful-errors:
-        specifier: 1.7.2
+        specifier: ^1.7.2
         version: 1.7.2
-      type-fns:
-        specifier: 1.21.0
-        version: 1.21.0
     devDependencies:
       '@biomejs/biome':
         specifier: 2.3.8
@@ -10760,7 +10757,7 @@ snapshots:
 
   type-fns@1.21.0:
     dependencies:
-      helpful-errors: 1.5.3
+      helpful-errors: 1.7.2
 
   typescript@5.4.5: {}
 

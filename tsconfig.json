@@ -1,5 +1,8 @@
 {
-  "extends": "@tsconfig/node-lts-strictest/tsconfig.json",
+  "extends": [
+    "@tsconfig/strictest/tsconfig.json",
+    "@tsconfig/node20/tsconfig.json"
+  ],
   "compilerOptions": {
     "importsNotUsedAsValues": "remove",
     "noPropertyAccessFromIndexSignature": false,
@@ -11,7 +14,19 @@
     "sourceMap": true,
     "outDir": "dist",
     "target": "es2020",
-    "exactOptionalPropertyTypes": false
+    "exactOptionalPropertyTypes": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "*"
+      ],
+      "@src/*": [
+        "src/*"
+      ]
+    },
+    "incremental": true,
+    "module": "node16",
+    "moduleResolution": "node16"
   },
   "include": [
     "**/*.ts"

@@ -1,4 +1,4 @@
-import { Literalize } from './Literalize';
+import type { Literalize } from './Literalize';
 
 describe('Literalize', () => {
   it('should be able to cast enum into union of literals or enum values', () => {

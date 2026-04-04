@@ -1,4 +1,4 @@
-import { PickAny } from './PickAny';
+import type { PickAny } from './PickAny';
 
 describe('PickAny', () => {
   it('should constrain type correctly', async () => {

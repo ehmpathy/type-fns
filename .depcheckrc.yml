@@ -3,10 +3,27 @@ ignores:
   - declapract
   - declapract-typescript-ehmpathy
   - '@commitlint/config-conventional'
-  - '@trivago/prettier-plugin-sort-imports'
-  - '@tsconfig/node-lts-strictest'
+  - husky
+  - "@src/*"
+  - "@src/.*"
+  - rhachet
+  - rhachet-brains-anthropic
+  - rhachet-brains-xai
+  - rhachet-roles-bhrain
+  - rhachet-roles-bhuild
+  - rhachet-roles-ehmpathy
+  - "@tsconfig/node20"
+  - "@tsconfig/node-lts-strictest"
+  - "@tsconfig/strictest"
+  - "@biomejs/biome"
+  - esbuild-register
+  - "@swc/core"
+  - "@swc/jest"
+  - tsx
+  - tsc-alias
+  - yalc
+  - type-fns
   - core-js
   - ts-jest
   - ts-node
-  - date-fns
-  - husky
+  - "@jest/globals"

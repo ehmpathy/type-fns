@@ -1,6 +1,7 @@
 import { getError } from 'test-fns';
 
-import { AssureIsOfTypeRejectionError } from '../wrappers/withAssure';
+import { AssureIsOfTypeRejectionError } from '@src/wrappers/withAssure';
+
 import { assure } from './assure';
 
 describe('assure', () => {

@@ -1,4 +1,4 @@
-import { DropFirst } from './DropFirst';
+import type { DropFirst } from './DropFirst';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 describe('DropFirst', () => {

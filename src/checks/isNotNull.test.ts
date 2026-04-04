@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { isNotNull, NotNull } from '..';
+import { isNotNull, type NotNull } from '..';
 
 describe('isNotNull', () => {
   it('should constrain type correctly', async () => {

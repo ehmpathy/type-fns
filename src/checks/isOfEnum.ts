@@ -1,4 +1,4 @@
-import { AssessWithAssure, withAssure } from '../wrappers/withAssure';
+import { type AssessWithAssure, withAssure } from '@src/wrappers/withAssure';
 
 /**
  * a generic fn that allows us to create type checks for enums. for example:

@@ -1,6 +1,7 @@
 import { getError } from 'test-fns';
 
-import { NotNull } from '../checks/isNotNull';
+import type { NotNull } from '@src/checks/isNotNull';
+
 import { asAssure, withAssure } from './withAssure';
 
 describe('asAssure', () => {

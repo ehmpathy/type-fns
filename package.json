@@ -62,8 +62,7 @@
   },
   "dependencies": {
     "domain-objects": "0.31.10",
-    "helpful-errors": "1.7.2",
-    "type-fns": "1.21.0"
+    "helpful-errors": "^1.7.2"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.8",

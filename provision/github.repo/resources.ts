@@ -96,7 +96,7 @@ export const getResources = async (): Promise<DomainEntity<any>[]> => {
   });
 
   // declare protection for that branch, too
-  const _branchMainProtection = DeclaredGithubBranchProtection.as({
+  const branchMainProtection = DeclaredGithubBranchProtection.as({
     branch: branchMain,
 
     enforceAdmins: true, // yes, even admins need to follow this (note: they can still take the time to go and change the settings temporarily for the exceptions)
@@ -131,6 +131,5 @@ export const getResources = async (): Promise<DomainEntity<any>[]> => {
   });
 
   // and return the full set
-  // todo: re-enable branchMainProtection after declastruct-github fixes nested object support for requiredPullRequestReviews
-  return [repo, repoConfig];
+  return [repo, repoConfig, branchMainProtection];
 };

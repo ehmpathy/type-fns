@@ -69,6 +69,7 @@
     "@biomejs/biome": "2.3.8",
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
+    "@jest/globals": "30.2.0",
     "@swc/core": "1.15.3",
     "@swc/jest": "0.2.39",
     "@tsconfig/node-lts-strictest": "18.12.1",

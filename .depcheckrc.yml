@@ -8,6 +8,7 @@ ignores:
   - "@src/.*"
   - rhachet
   - rhachet-brains-anthropic
+  - rhachet-brains-fireworksai
   - rhachet-brains-xai
   - rhachet-roles-bhrain
   - rhachet-roles-bhuild

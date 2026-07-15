@@ -14,6 +14,7 @@ export * from './companions/pick';
 export * from './guards/assure';
 export * from './types/DropFirst';
 export * from './types/Empty';
+export * from './types/HasMaybe';
 export * from './types/Literalize';
 export * from './types/PickAny';
 export * from './types/PickOne';

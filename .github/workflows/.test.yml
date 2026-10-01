@@ -242,16 +242,7 @@ jobs:
 
       - name: report slow tests
         if: always() && hashFiles('jest-results.json') != ''
-        run: |
-          set -eu
-          jq -r '.testResults[] | "\(.name):\(.perfStats.runtime)"' jest-results.json | while IFS=: read -r name runtime; do
-            seconds=$((runtime / 1000))
-            if [[ $seconds -ge 30 ]]; then
-              echo "::warning file=${name}::slow test: ${seconds}s"
-            elif [[ $seconds -ge 10 ]]; then
-              echo "::notice file=${name}::test duration: ${seconds}s"
-            fi
-          done
+        run: bash .github/workflows/report-slow-tests.sh jest-results.json
 
   test-shards-acceptance:
     runs-on: ubuntu-24.04
@@ -316,16 +307,7 @@ jobs:
 
       - name: report slow tests
         if: always() && hashFiles('jest-results.json') != ''
-        run: |
-          set -eu
-          jq -r '.testResults[] | "\(.name):\(.perfStats.runtime)"' jest-results.json | while IFS=: read -r name runtime; do
-            seconds=$((runtime / 1000))
-            if [[ $seconds -ge 30 ]]; then
-              echo "::warning file=${name}::slow test: ${seconds}s"
-            elif [[ $seconds -ge 10 ]]; then
-              echo "::notice file=${name}::test duration: ${seconds}s"
-            fi
-          done
+        run: bash .github/workflows/report-slow-tests.sh jest-results.json
 
   # union job: aggregates shard results into single status for pr merge constraints
   test-integration:

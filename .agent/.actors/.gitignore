@@ -1,0 +1,9 @@
+# .what = tells git to ignore this dir
+# .why = holds ephemeral, local-only runtime state, never source
+#   - enrolled-actor records + caches are host-local
+#   - regenerated on demand; none of it belongs in git history
+# .note = safe to delete; rhachet recreates it as needed
+# .note = the default actor dir is the one exception: it holds the repo brain dir
+/*
+!/.gitignore
+!/actor.via.slug=.default/

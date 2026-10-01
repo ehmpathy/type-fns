@@ -101,7 +101,28 @@ const str: string = strStr[0];
 const num: number = numStrStr[0];
 ```
 
-Useful, for example, if you want to change the first parameter of a function while keeping the rest the same.
+useful, for example, to change the first parameter of a function while the rest stay the same.
+
+### `FrozenDeep`
+
+the generic type `FrozenDeep` is readonly all the way down, where `Readonly` stops at one level. every primitive, branded primitives included, stays exactly as it is.
+
+```ts
+import { FrozenDeep } from 'type-fns';
+
+type IsoTimeStamp = string & { _dglo: 'iso-time.IsoTimeStamp' };
+type Event = { at: IsoTimeStamp; page: { limit: number }; tags: string[]; seen: Map<string, number> };
+
+declare const event: FrozenDeep<Event>;
+event.page.limit = 50;          // 🛑 readonly at depth two
+event.tags.push('push');        // 🛑 a readonly array has no push
+event.seen.set('sms', 1);       // 🛑 a FrozenMap has no set
+const at: IsoTimeStamp = event.at; // ✅ a branded primitive stays assignable back
+```
+
+one bound to know: a frozen object still passes into a parameter typed as a mutable object, since typescript does not check `readonly` on object props at assignment. a frozen array does not pass into a mutable array parameter, so an object with an array field inside is refused there too — the cause is the array, never a brand. declare the parameter `FrozenDeep<T>` to accept it.
+
+maps and sets freeze to `FrozenMap` / `FrozenSet`, also exported. pair it with `asFrozenDeep` to enforce the same at runtime.
 
 ## type guards
 
@@ -207,3 +228,36 @@ const processUser = (input: { uuid: string }) => {
   // ...
 };
 ```
+
+## companions
+
+### `asFrozenDeep`
+
+the `asFrozenDeep` function freezes a value and every value it reaches, in place, and returns it typed as `FrozenDeep<T>`. a write the type refuses also throws at runtime.
+
+```ts
+import { asFrozenDeep } from 'type-fns';
+
+const event = asFrozenDeep({ page: { limit: 10 }, seen: new Map([['sms', 1]]) });
+event.page.limit = 50;    // 🛑 typescript error; at runtime, a TypeError
+event.seen.set('push', 2); // 🛑 typescript error; at runtime, a ConstraintError (a bare Object.freeze permits it)
+```
+
+it returns the same reference, so any other holder of a sub-object sees it frozen too. it reaches non-enumerable props as well, so `new Error('x', { cause })` freezes `cause`, yet never enters a function's `prototype`, which every instance of a class shares. it is safe on cycles and shared sub-objects, and a second call is a no-op. it checks the whole value before it freezes any of it, so a refusal (a typed array with elements, a global or sticky `RegExp`, or a map sealed by a bare `Object.freeze`) leaves the value untouched. each refusal is a `ConstraintError` that names where the refused object sits and how to fix it:
+
+```
+✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value.event.records[1].raw",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}
+```
+
+a bare `Object.freeze` lets a built-in change its internal state through its own methods. `asFrozenDeep` refuses those at runtime: `Map` and `Set` (`set`, `add`, `delete`, `clear`), `WeakMap` and `WeakSet` (`set`, `add`, `delete`), `Date` and `DataView` (every `set*`), `RegExp` (`compile`), and `ArrayBuffer` (`resize`, `transfer`). the type keeps the object arm for all but `Map` and `Set`, so those calls still compile.
+
+what it does not reach: the bytes of an `ArrayBuffer` through a view built on it, a class instance's `#private` fields through its own methods, the value a getter returns (it never invokes a getter), and a refused mutator called through its prototype, as in `Map.prototype.set.call(frozen, k, v)`.
+
+to change a frozen value, copy it and change the copy: `{ ...event, page: { ...event.page, limit: 50 } }`, or `new Map(event.seen)` for a map.

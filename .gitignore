@@ -17,3 +17,4 @@ dist
 node_modules
 !.test*/**/node_modules
 !.test*/**/node_modules/**
+!.agent/.actors/actor.via.slug=.default/

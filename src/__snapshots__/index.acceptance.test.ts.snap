@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`type-fns, built given: [case2] the package root when: [t0] a consumer imports the Frozen family, ArrayWith, and asFrozenDeep then: the built root exports the same runtime names 1`] = `
+[
+  "AssureIsOfTypeRejectionError",
+  "asAssure",
+  "asFrozenDeep",
+  "assure",
+  "createIsOfEnum",
+  "hasId",
+  "hasMetadata",
+  "hasUuid",
+  "isAFunction",
+  "isAPromise",
+  "isDefined",
+  "isKeyOf",
+  "isNotNull",
+  "isNotPromise",
+  "isNotUndefined",
+  "isPresent",
+  "omit",
+  "pick",
+  "withAssure",
+  "withNot",
+]
+`;
+
+exports[`type-fns, built given: [case3] a payload with a brand, a nested object, and a map when: [t0] asFrozenDeep freezes it then: it returns the same reference, frozen deep, the brand intact 1`] = `
+{
+  "at": "at",
+  "page": {
+    "limit": 10,
+  },
+  "seen": Map {
+    "sms" => 1,
+  },
+}
+`;
+
+exports[`type-fns, built given: [case3] a payload with a brand, a nested object, and a map when: [t1] a caller writes through the original reference then: the engine refuses it with a TypeError, and the value holds 1`] = `
+{
+  "message": "Cannot assign to read only property 'limit' of object <masked>",
+  "name": "TypeError",
+}
+`;
+
+exports[`type-fns, built given: [case3] a payload with a brand, a nested object, and a map when: [t2] a caller calls a map mutator then: a ConstraintError names the fix, and the map holds 1`] = `
+"✋ ConstraintError: a frozen Map refuses .set()
+
+{
+  "kind": "Map",
+  "mutator": "set",
+  "hint": "copy it first, then mutate the copy: new Map(frozen)"
+}"
+`;
+
+exports[`type-fns, built given: [case3] a payload with a brand, a nested object, and a map when: [t3] a caller calls a set or a date mutator then: each refuses with a ConstraintError, and each holds 1`] = `
+[
+  "✋ ConstraintError: a frozen Set refuses .add()
+
+{
+  "kind": "Set",
+  "mutator": "add",
+  "hint": "copy it first, then mutate the copy: new Set(frozen)"
+}",
+  "✋ ConstraintError: a frozen Date refuses .setFullYear()
+
+{
+  "kind": "Date",
+  "mutator": "setFullYear",
+  "hint": "copy it first, then mutate the copy: new Date(frozen)"
+}",
+]
+`;
+
+exports[`type-fns, built given: [case4] a payload asFrozenDeep can not freeze when: [t0] the payload holds a global RegExp, under a map value then: a ConstraintError names the path and the fix, and freezes naught 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a global or sticky RegExp, since each exec writes its lastIndex
+
+{
+  "path": "value.rules.get('sms').match",
+  "kind": "RegExp",
+  "flags": "g",
+  "hint": "copy it without the g and y flags first: new RegExp(re.source, re.flags.replace(/[gy]/g, ''))"
+}"
+`;
+
+exports[`type-fns, built given: [case4] a payload asFrozenDeep can not freeze when: [t0] the payload holds a map with a pinned mutator then: a ConstraintError names the path and the fix, and freezes naught 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a Map whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.cache",
+  "kind": "Map",
+  "mutator": "set",
+  "hint": "copy it first, which carries no own props: new Map(frozen)"
+}"
+`;
+
+exports[`type-fns, built given: [case4] a payload asFrozenDeep can not freeze when: [t0] the payload holds a set sealed by a bare Object.freeze then: a ConstraintError names the path and the fix, and freezes naught 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a Set already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.seen",
+  "kind": "Set",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: new Set(frozen)"
+}"
+`;
+
+exports[`type-fns, built given: [case4] a payload asFrozenDeep can not freeze when: [t0] the payload holds a typed array with elements, deep then: a ConstraintError names the path and the fix, and freezes naught 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value.event.records[0].raw",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;

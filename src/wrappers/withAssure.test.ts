@@ -53,9 +53,11 @@ describe('withAssure', () => {
     );
   });
 
-  it.skip('should be able to assure for a generic check', () => {
-    const isNotNullOrig = <I>(input: I): input is NotNull<I> => input !== null;
-    const isNotNull = withAssure(isNotNullOrig);
+  it('should be able to assure for a generic check', () => {
+    const isNotNull = withAssure(
+      <I>(input: I): input is NotNull<I> => input !== null,
+      { name: 'isNotNull' },
+    );
 
     // @ts-expect-error // todo: fix this once typescript enables passing through generic types. (today for generic, ReturnType<AssureMethod> works but ReturnType<{ assure: AssureMethod }> does not, leading this to fail)
     const shouldBeString: string = isNotNull.assure('hi');

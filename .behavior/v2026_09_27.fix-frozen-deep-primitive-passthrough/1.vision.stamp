@@ -1,0 +1,28 @@
+🦉 the way speaks for itself
+
+🗿 route.stone.set
+   ├─ stone = 1.vision
+   ├─ passage = allowed
+   ├─ guard
+   │  ├─ artifacts
+   │  ├─ reviews
+   │  │   ├─ r1: dimensional-decomposition (l1, 3/3)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 6 nitpicks 🟠
+   │  │   │   ├─ given: .behavior/v2026_09_27.fix-frozen-deep-primitive-passthrough/.reviews/peer/1.vision._.review.i004.5be743267ab9415dde.r001._.given.by_peer.dimensional-decomposition.md
+   │  │   │   └─ taken: .behavior/v2026_09_27.fix-frozen-deep-primitive-passthrough/.reviews/peer/1.vision._.review.i004.5be743267ab9415dde.r001._.taken.by_self.dimensional-decomposition.md
+   │  │   └─ r2: experience-coverage (l1, 3/3)
+   │  │       ├─ approved, cached
+   │  │       ├─ 0 blockers ✓
+   │  │       ├─ 2 nitpicks 🟠
+   │  │       ├─ given: .behavior/v2026_09_27.fix-frozen-deep-primitive-passthrough/.reviews/peer/1.vision._.review.i007.16182150ed408e036b.r002._.given.by_peer.experience-coverage.md
+   │  │       └─ taken: .behavior/v2026_09_27.fix-frozen-deep-primitive-passthrough/.reviews/peer/1.vision._.review.i007.16182150ed408e036b.r002._.taken.by_self.experience-coverage.md
+   │  └─ judges
+   │      ├─ j1: $rhachet run --repo bhrain --skill route.stone.judge --mechanism reviewed? --stone $stone --route $route --allow-blockers 0 --allow-nitpicks 7
+   │      │   └─ · cached
+   │      └─ j2: $rhachet run --repo bhrain --skill route.stone.judge --mechanism approved? --stone $stone --route $route
+   │          └─ · cached
+   │
+   └─ the way continues, run
+      └─ rhx route.drive

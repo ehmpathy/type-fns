@@ -1,3 +1,6 @@
+# the rhachet actor sandbox: gitignored, local-only, vendors third-party plugins with their own deps
+ignorePatterns:
+  - .agent
 ignores:
   - depcheck
   - declapract

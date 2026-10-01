@@ -5,4 +5,9 @@ extends:
   - .agent/repo=ehmpathy/role=mechanic/keyrack.yml
 env.prod: null
 env.prep: null
-env.test: null
+env.test:
+  # this repo's tests call no model; the extended mechanic role declares FIREWORKS_API_KEY for
+  # its review lanes, so waive it whenever CI is set (github always sets CI=true) to let the
+  # integration and acceptance jobs boot. locally CI is unset, so the key stays required
+  - key: FIREWORKS_API_KEY
+    is-optional-if-has: CI

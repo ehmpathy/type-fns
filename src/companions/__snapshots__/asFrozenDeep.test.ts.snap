@@ -1,0 +1,557 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should freeze a DataView with bytes, and refuse its setters 1`] = `
+"✋ ConstraintError: a frozen DataView refuses .setInt8()
+
+{
+  "kind": "DataView",
+  "mutator": "setInt8",
+  "hint": "copy it first, then mutate the copy: new DataView(frozen.buffer.slice(0))"
+}"
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should freeze a map value deep 1`] = `
+{
+  "message": "Cannot assign to read only property 'n' of object <masked>",
+  "name": "TypeError",
+}
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should freeze a value under a symbol key deep, as the type does 1`] = `
+{
+  "message": "Cannot assign to read only property 'n' of object <masked>",
+  "name": "TypeError",
+}
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse a push onto an array, at depth 1`] = `
+{
+  "message": "Cannot add property 1, object is not extensible",
+  "name": "TypeError",
+}
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse a write at depth two on a plain object 1`] = `
+{
+  "message": "Cannot assign to read only property 'y' of object <masked>",
+  "name": "TypeError",
+}
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse a write into a tuple slot, and keep the tuple 1`] = `
+{
+  "message": "Cannot assign to read only property '0' of object <masked>",
+  "name": "TypeError",
+}
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse a write onto a function prop, and keep the function callable 1`] = `
+{
+  "message": "Cannot assign to read only property 'retries' of function <masked>",
+  "name": "TypeError",
+}
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse arraybuffer.transfer, which a bare Object.freeze permits, and keep reads 1`] = `
+"✋ ConstraintError: a frozen ArrayBuffer refuses .transfer()
+
+{
+  "kind": "ArrayBuffer",
+  "mutator": "transfer",
+  "hint": "copy it first, then mutate the copy: frozen.slice(0)"
+}"
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse every Date setter, which a bare Object.freeze permits 1`] = `
+"✋ ConstraintError: a frozen Date refuses .setFullYear()
+
+{
+  "kind": "Date",
+  "mutator": "setFullYear",
+  "hint": "copy it first, then mutate the copy: new Date(frozen)"
+}"
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse map.set, map.delete, and map.clear, and keep reads 1`] = `
+{
+  "clear": "✋ ConstraintError: a frozen Map refuses .clear()
+
+{
+  "kind": "Map",
+  "mutator": "clear",
+  "hint": "copy it first, then mutate the copy: new Map(frozen)"
+}",
+  "delete": "✋ ConstraintError: a frozen Map refuses .delete()
+
+{
+  "kind": "Map",
+  "mutator": "delete",
+  "hint": "copy it first, then mutate the copy: new Map(frozen)"
+}",
+  "set": "✋ ConstraintError: a frozen Map refuses .set()
+
+{
+  "kind": "Map",
+  "mutator": "set",
+  "hint": "copy it first, then mutate the copy: new Map(frozen)"
+}",
+}
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse regexp.compile, which a bare Object.freeze lets rewrite the source, and keep reads 1`] = `
+"✋ ConstraintError: a frozen RegExp refuses .compile()
+
+{
+  "kind": "RegExp",
+  "mutator": "compile",
+  "hint": "copy it first, then mutate the copy: new RegExp(frozen)"
+}"
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse set.add, set.delete, and set.clear, and keep reads 1`] = `
+{
+  "add": "✋ ConstraintError: a frozen Set refuses .add()
+
+{
+  "kind": "Set",
+  "mutator": "add",
+  "hint": "copy it first, then mutate the copy: new Set(frozen)"
+}",
+  "clear": "✋ ConstraintError: a frozen Set refuses .clear()
+
+{
+  "kind": "Set",
+  "mutator": "clear",
+  "hint": "copy it first, then mutate the copy: new Set(frozen)"
+}",
+  "delete": "✋ ConstraintError: a frozen Set refuses .delete()
+
+{
+  "kind": "Set",
+  "mutator": "delete",
+  "hint": "copy it first, then mutate the copy: new Set(frozen)"
+}",
+}
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse weakmap.set and weakmap.delete, and keep reads 1`] = `
+{
+  "delete": "✋ ConstraintError: a frozen WeakMap refuses .delete()
+
+{
+  "kind": "WeakMap",
+  "mutator": "delete",
+  "hint": "copy it first, then mutate the copy: a new WeakMap, refilled from the keys you hold"
+}",
+  "set": "✋ ConstraintError: a frozen WeakMap refuses .set()
+
+{
+  "kind": "WeakMap",
+  "mutator": "set",
+  "hint": "copy it first, then mutate the copy: a new WeakMap, refilled from the keys you hold"
+}",
+}
+`;
+
+exports[`asFrozenDeep the type and the runtime agree, per shape should refuse weakset.add and weakset.delete, and keep reads 1`] = `
+{
+  "add": "✋ ConstraintError: a frozen WeakSet refuses .add()
+
+{
+  "kind": "WeakSet",
+  "mutator": "add",
+  "hint": "copy it first, then mutate the copy: a new WeakSet, refilled from the members you hold"
+}",
+  "delete": "✋ ConstraintError: a frozen WeakSet refuses .delete()
+
+{
+  "kind": "WeakSet",
+  "mutator": "delete",
+  "hint": "copy it first, then mutate the copy: a new WeakSet, refilled from the members you hold"
+}",
+}
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud should refuse a global or sticky RegExp, since a plain read on a frozen one throws 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a global or sticky RegExp, since each exec writes its lastIndex
+
+{
+  "path": "value.pattern",
+  "kind": "RegExp",
+  "flags": "g",
+  "hint": "copy it without the g and y flags first: new RegExp(re.source, re.flags.replace(/[gy]/g, ''))"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud should refuse a map already sealed by a bare Object.freeze 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a Map already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value",
+  "kind": "Map",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: new Map(frozen)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud should refuse a map with a pinned mutator, and leave the rest untouched 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a Map whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.pinned",
+  "kind": "Map",
+  "mutator": "set",
+  "hint": "copy it first, which carries no own props: new Map(frozen)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud should refuse a set already sealed by a bare Object.freeze 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a Set already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value",
+  "kind": "Set",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: new Set(frozen)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud should refuse a typed array with elements, and name the fix 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value.bytes",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path for every refusal kind, not only the typed array 1`] = `
+{
+  "pinned": "✋ ConstraintError: asFrozenDeep can not freeze a Set whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.seen[0]",
+  "kind": "Set",
+  "mutator": "add",
+  "hint": "copy it first, which carries no own props: new Set(frozen)"
+}",
+  "regexp": "✋ ConstraintError: asFrozenDeep can not freeze a global or sticky RegExp, since each exec writes its lastIndex
+
+{
+  "path": "value.rules.match",
+  "kind": "RegExp",
+  "flags": "g",
+  "hint": "copy it without the g and y flags first: new RegExp(re.source, re.flags.replace(/[gy]/g, ''))"
+}",
+  "sealed": "✋ ConstraintError: asFrozenDeep can not freeze a Map already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.cache",
+  "kind": "Map",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: new Map(frozen)"
+}",
+}
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a key no identifier can spell: value['raw-bytes'] 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value['raw-bytes']",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a key that holds a backslash: value['wave\\\\set'] 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value['wave\\\\\\\\set']",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a key that holds a quote: value['surfer\\'s'] 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value['surfer\\\\'s']",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a map key: [...value.byKey.keys()][0] 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "[...value.byKey.keys()][0]",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a map value, under a boolean key: value.byKey.get(true) 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value.byKey.get(true)",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a map value, under a number key: value.byKey.get(7) 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value.byKey.get(7)",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a map value, under a string key: value.byKey.get('sms') 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value.byKey.get('sms')",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a map value, under an object key: [...value.byKey.values()][0] 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "[...value.byKey.values()][0]",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a set member: [...value.seen][1] 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "[...value.seen][1]",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through a symbol key: value[Symbol(tag)] 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value[Symbol(tag)]",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through an array index: value.list[1] 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value.list[1]",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through an own prop, at depth: value.page.bytes 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value.page.bytes",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the refusal names the path where the refused object sits should name the path through the root: value 1`] = `
+"✋ ConstraintError: asFrozenDeep can not freeze a typed array with elements
+
+{
+  "path": "value",
+  "kind": "Uint8Array",
+  "byteLength": 1,
+  "hint": "convert it to a plain array first, e.g. Array.from(bytes)"
+}"
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the sealed and pinned refusals hold for every slot-mutator kind should refuse the kind ArrayBuffer when sealed elsewhere, or with a pinned transfer 1`] = `
+{
+  "pinned": "✋ ConstraintError: asFrozenDeep can not freeze an ArrayBuffer whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.pinned",
+  "kind": "ArrayBuffer",
+  "mutator": "transfer",
+  "hint": "copy it first, which carries no own props: frozen.slice(0)"
+}",
+  "sealed": "✋ ConstraintError: asFrozenDeep can not freeze an ArrayBuffer already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.sealed",
+  "kind": "ArrayBuffer",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: frozen.slice(0)"
+}",
+}
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the sealed and pinned refusals hold for every slot-mutator kind should refuse the kind DataView when sealed elsewhere, or with a pinned setInt8 1`] = `
+{
+  "pinned": "✋ ConstraintError: asFrozenDeep can not freeze a DataView whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.pinned",
+  "kind": "DataView",
+  "mutator": "setInt8",
+  "hint": "copy it first, which carries no own props: new DataView(frozen.buffer.slice(0))"
+}",
+  "sealed": "✋ ConstraintError: asFrozenDeep can not freeze a DataView already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.sealed",
+  "kind": "DataView",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: new DataView(frozen.buffer.slice(0))"
+}",
+}
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the sealed and pinned refusals hold for every slot-mutator kind should refuse the kind Date when sealed elsewhere, or with a pinned setFullYear 1`] = `
+{
+  "pinned": "✋ ConstraintError: asFrozenDeep can not freeze a Date whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.pinned",
+  "kind": "Date",
+  "mutator": "setFullYear",
+  "hint": "copy it first, which carries no own props: new Date(frozen)"
+}",
+  "sealed": "✋ ConstraintError: asFrozenDeep can not freeze a Date already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.sealed",
+  "kind": "Date",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: new Date(frozen)"
+}",
+}
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the sealed and pinned refusals hold for every slot-mutator kind should refuse the kind Map when sealed elsewhere, or with a pinned set 1`] = `
+{
+  "pinned": "✋ ConstraintError: asFrozenDeep can not freeze a Map whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.pinned",
+  "kind": "Map",
+  "mutator": "set",
+  "hint": "copy it first, which carries no own props: new Map(frozen)"
+}",
+  "sealed": "✋ ConstraintError: asFrozenDeep can not freeze a Map already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.sealed",
+  "kind": "Map",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: new Map(frozen)"
+}",
+}
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the sealed and pinned refusals hold for every slot-mutator kind should refuse the kind RegExp when sealed elsewhere, or with a pinned compile 1`] = `
+{
+  "pinned": "✋ ConstraintError: asFrozenDeep can not freeze a RegExp whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.pinned",
+  "kind": "RegExp",
+  "mutator": "compile",
+  "hint": "copy it first, which carries no own props: new RegExp(frozen)"
+}",
+  "sealed": "✋ ConstraintError: asFrozenDeep can not freeze a RegExp already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.sealed",
+  "kind": "RegExp",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: new RegExp(frozen)"
+}",
+}
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the sealed and pinned refusals hold for every slot-mutator kind should refuse the kind Set when sealed elsewhere, or with a pinned add 1`] = `
+{
+  "pinned": "✋ ConstraintError: asFrozenDeep can not freeze a Set whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.pinned",
+  "kind": "Set",
+  "mutator": "add",
+  "hint": "copy it first, which carries no own props: new Set(frozen)"
+}",
+  "sealed": "✋ ConstraintError: asFrozenDeep can not freeze a Set already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.sealed",
+  "kind": "Set",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: new Set(frozen)"
+}",
+}
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the sealed and pinned refusals hold for every slot-mutator kind should refuse the kind WeakMap when sealed elsewhere, or with a pinned set 1`] = `
+{
+  "pinned": "✋ ConstraintError: asFrozenDeep can not freeze a WeakMap whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.pinned",
+  "kind": "WeakMap",
+  "mutator": "set",
+  "hint": "copy it first, which carries no own props: a new WeakMap, refilled from the keys you hold"
+}",
+  "sealed": "✋ ConstraintError: asFrozenDeep can not freeze a WeakMap already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.sealed",
+  "kind": "WeakMap",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: a new WeakMap, refilled from the keys you hold"
+}",
+}
+`;
+
+exports[`asFrozenDeep the values it can not freeze, refused loud the sealed and pinned refusals hold for every slot-mutator kind should refuse the kind WeakSet when sealed elsewhere, or with a pinned add 1`] = `
+{
+  "pinned": "✋ ConstraintError: asFrozenDeep can not freeze a WeakSet whose mutator is pinned as an own non-configurable property
+
+{
+  "path": "value.pinned",
+  "kind": "WeakSet",
+  "mutator": "add",
+  "hint": "copy it first, which carries no own props: a new WeakSet, refilled from the members you hold"
+}",
+  "sealed": "✋ ConstraintError: asFrozenDeep can not freeze a WeakSet already sealed via Object.freeze, Object.seal, or Object.preventExtensions
+
+{
+  "path": "value.sealed",
+  "kind": "WeakSet",
+  "hint": "pass it to asFrozenDeep before any other freeze, or copy it first: a new WeakSet, refilled from the members you hold"
+}",
+}
+`;

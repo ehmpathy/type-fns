@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`FrozenDeep the package root should keep the runtime export names of the root stable 1`] = `
+[
+  "AssureIsOfTypeRejectionError",
+  "asAssure",
+  "asFrozenDeep",
+  "assure",
+  "createIsOfEnum",
+  "hasId",
+  "hasMetadata",
+  "hasUuid",
+  "isAFunction",
+  "isAPromise",
+  "isDefined",
+  "isKeyOf",
+  "isNotNull",
+  "isNotPromise",
+  "isNotUndefined",
+  "isPresent",
+  "omit",
+  "pick",
+  "withAssure",
+  "withNot",
+]
+`;
